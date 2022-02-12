@@ -27,18 +27,31 @@ function computeResult(computerChoice, playerChoice) {
 }
 
 function playGame(repetitions=1) {
-   for (let i=0; i<=repetitions; i++) {
+    let playerScore = 0
 
-        let playerChoice = play();
-        let computerChoice = play();
-        let gameResult = computeResult(computerChoice, playerChoice);
+   for (let i=0; i<repetitions; i++) {
+       let gameNumber = i + 1
+       let playerChoice = prompt("***GAME " + gameNumber + "***\nRock, paper or scissors?");
+       let computerChoice = play();
+       let gameResult = computeResult(computerChoice, playerChoice);
+       if (gameResult == "You win!") {
+           playerScore++
+       }
 
-        console.log("***GAME " + i + "***");
-        console.log("Player choice: " + playerChoice); 
-        console.log("Computer choice: " + computerChoice);
-        console.log(gameResult + "\n");
+       alert(gameResult + "\nYour chose: " + playerChoice + 
+            "\nComputer chose: " + computerChoice + 
+            "\nCurrent score: " + playerScore + " wins out of " + repetitions + " games.") 
+       console.log("Player choice: " + playerChoice); 
+       console.log("Computer choice: " + computerChoice);
+       console.log(gameResult + "\n");
    } 
 }
 
-playGame(10)
+function displayGameResult(computerChoice, playerChoice, gameResult) {
+    switch (gameResult) {
+        case "Draw!":
+    }
+}
+
+playGame(prompt("Welcome to RPS! How many rounds would you like go play?"))
 
