@@ -1,4 +1,10 @@
+// Variables and elements
+
 const options = ["rock", "paper", "scissors"];
+
+const gameElements = document.querySelectorAll(".rps-button")
+
+// Game logic
 
 function play() {
 
@@ -31,7 +37,7 @@ function playGame(repetitions=1) {
 
    for (let i=0; i<repetitions; i++) {
        let gameNumber = i + 1
-       let playerChoice = prompt("***GAME " + gameNumber + "***\nRock, paper or scissors?");
+    //    let playerChoice = prompt("***GAME " + gameNumber + "***\nRock, paper or scissors?");
        let computerChoice = play();
        let gameResult = computeResult(computerChoice, playerChoice);
        if (gameResult == "You win!") {
@@ -53,5 +59,15 @@ function displayGameResult(computerChoice, playerChoice, gameResult) {
     }
 }
 
-playGame(prompt("Welcome to RPS! How many rounds would you like go play?"))
+
+// Event listeners
+
+gameElements.forEach((gameElement) => {
+    gameElement.addEventListener("click", () => {
+        alert(gameElement.textContent);
+
+    });
+
+
+});
 
